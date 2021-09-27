@@ -775,7 +775,9 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH
+#define SERVO0_PIN 27
+#define NUM_SERVOS 1 
 
 /**
  * Enable one or more of the following if probing seems unreliable.
@@ -835,10 +837,10 @@
 //#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
 //#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
-//ANET A6 with BLTouch/3D-Touch mounted right to the nozzel
-#define X_PROBE_OFFSET_FROM_EXTRUDER 39 // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER  0 // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER  0 // Z offset: -below +above  [the nozzle]
+//ANET A6 with BLTouch/3D-Touch mounted front to the nozzle
+#define X_PROBE_OFFSET_FROM_EXTRUDER -9 // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -56 // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.4 // Z offset: -below +above  [the nozzle]
 
 //ANET A6 with BLTouch/3D-Touch betwen Fan and Belt
 // (mount: https://github.com/ralf-e/ANET_A6_modifications/tree/master/A6_X-Axis)
@@ -944,7 +946,7 @@
 
 //#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-//#define Z_HOMING_HEIGHT 4  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 10  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -1087,7 +1089,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -1142,10 +1144,10 @@
   //#define BACK_PROBE_BED_POSITION (Y_BED_SIZE - 15)
 
   // ANET A6
-  //#define LEFT_PROBE_BED_POSITION 20
-  //#define RIGHT_PROBE_BED_POSITION 190
-  //#define FRONT_PROBE_BED_POSITION 20
-  //#define BACK_PROBE_BED_POSITION 190
+  #define LEFT_PROBE_BED_POSITION 20
+  #define RIGHT_PROBE_BED_POSITION 190
+  #define FRONT_PROBE_BED_POSITION 20
+  #define BACK_PROBE_BED_POSITION 150
 
   // ANET A6 BLTOUCH right (39mm) to the nozzle
   //#define LEFT_PROBE_BED_POSITION 36
@@ -1374,9 +1376,9 @@
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //
-#define EEPROM_SETTINGS   // Enable for M500 and M501 commands
+//#define EEPROM_SETTINGS   // Enable for M500 and M501 commands
 //#define DISABLE_M503    // Saves ~2700 bytes of PROGMEM. Disable for release!
-#define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
+//#define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
 
 //
 // Host Keepalive
